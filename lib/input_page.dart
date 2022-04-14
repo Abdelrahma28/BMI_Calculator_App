@@ -1,3 +1,4 @@
+import 'package:bmi_calculater/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
@@ -73,7 +74,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('HEIGHT', style: kLabelTextStyle),
+                  const Text('HEIGHT', style: kLabelTextStyle),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -83,22 +84,22 @@ class _InputPageState extends State<InputPage> {
                         height.toString(),
                         style: kValueTextStyle,
                       ),
-                      Text('cm', style: kLabelTextStyle)
+                      const Text('cm', style: kLabelTextStyle)
                     ],
                   ),
                   SizedBox(
                     width: 320.0,
                     child: SliderTheme(
                       data: SliderTheme.of(context).copyWith(
-                          thumbColor: Color(0xFFEB1555),
+                          thumbColor: const Color(0xFFEB1555),
                           trackHeight: 1,
-                          inactiveTrackColor: Color(0xFF8D9E98),
+                          inactiveTrackColor: const Color(0xFF8D9E98),
                           activeTrackColor: Colors.white,
-                          overlayColor: Color(0x29EB1555),
-                          thumbShape:
-                              RoundSliderThumbShape(enabledThumbRadius: 12.0),
-                          overlayShape:
-                              RoundSliderOverlayShape(overlayRadius: 30.0)),
+                          overlayColor: const Color(0x29EB1555),
+                          thumbShape: const RoundSliderThumbShape(
+                              enabledThumbRadius: 12.0),
+                          overlayShape: const RoundSliderOverlayShape(
+                              overlayRadius: 30.0)),
                       child: Slider(
                         min: 120.0,
                         max: 220.0,
@@ -118,38 +119,40 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveColor,
-                    cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'WEIGHT',
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          weight.toString(),
-                          style: kValueTextStyle,
-                        ),
-                        Row(
+                    cardChild: Expanded(
+                      child: ReusableCard(
+                        colour: kActiveColor,
+                        cardChild: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    weight++;
-                                  });
-                                },
-                                icon: FontAwesomeIcons.plus),
-                            SizedBox(width: 15.0),
-                            RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    weight--;
-                                  });
-                                },
-                                icon: FontAwesomeIcons.minus),
+                            const Text('WEIGHT', style: kLabelTextStyle),
+                            Text(
+                              weight.toString(),
+                              style: kValueTextStyle,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RoundIconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        weight++;
+                                      });
+                                    },
+                                    icon: FontAwesomeIcons.plus),
+                                const SizedBox(width: 15.0),
+                                RoundIconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        weight--;
+                                      });
+                                    },
+                                    icon: FontAwesomeIcons.minus)
+                              ],
+                            ),
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -159,7 +162,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('AGE', style: kLabelTextStyle),
+                        const Text('AGE', style: kLabelTextStyle),
                         Text(
                           age.toString(),
                           style: kValueTextStyle,
@@ -174,7 +177,7 @@ class _InputPageState extends State<InputPage> {
                                   });
                                 },
                                 icon: FontAwesomeIcons.plus),
-                            SizedBox(width: 15.0),
+                            const SizedBox(width: 15.0),
                             RoundIconButton(
                                 onPressed: () {
                                   setState(() {
@@ -183,7 +186,7 @@ class _InputPageState extends State<InputPage> {
                                 },
                                 icon: FontAwesomeIcons.minus)
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -199,23 +202,6 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.onPressed, required this.icon});
-  final VoidCallback onPressed;
-  final IconData icon;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(icon),
-      elevation: 8.0,
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      onPressed: onPressed,
     );
   }
 }
