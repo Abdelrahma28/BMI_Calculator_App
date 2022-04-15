@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const kCalculateStyle = TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 22.0,
+);
 const kGenderTextColor = Color(0xFF8D8E98);
 const kBottomContainerHeight = 80.0;
 const kBottomContainerColor = Color(0xFFEB1555);
