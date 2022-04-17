@@ -5,13 +5,16 @@ import '../constants.dart';
 import 'package:bmi_calculater/reusable_widgets/reusable_button.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key}) : super(key: key);
-
+  ResultPage(
+      {required this.result, required this.bmi, required this.interpretation});
+  final String result;
+  final String bmi;
+  final String interpretation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'BMI CALCULATOR',
         ),
         centerTitle: true,
@@ -23,8 +26,8 @@ class ResultPage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.bottomLeft,
-              margin: EdgeInsets.all(15.0),
-              child: Text(
+              margin: const EdgeInsets.all(15.0),
+              child: const Text(
                 'Your Result',
                 style: kValueTextStyle,
               ),
@@ -38,15 +41,15 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    result,
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '26.7',
+                    bmi,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Your Bmin result is low .. you must eat',
+                    interpretation,
                     style: kBodyTextStyle,
                     textAlign: TextAlign.center,
                   )
