@@ -1,9 +1,11 @@
-import 'package:bmi_calculater/rounded_button.dart';
+import 'package:bmi_calculater/reusable_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
+import '../reusable_widgets/icon_content.dart';
+import '../reusable_widgets/reusable_card.dart';
+import '../constants.dart';
+import 'result_screen.dart';
+import '../reusable_widgets/reusable_button.dart';
 
 enum Gender { male, female, empty }
 
@@ -194,22 +196,12 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'CALCULATE',
-                    style: kCalculateStyle,
-                  )
-                ],
-              ),
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
+          CalculateButton(
+            label: 'CALCULATE',
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultPage()));
+            },
           )
         ],
       ),
