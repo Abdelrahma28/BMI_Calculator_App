@@ -6,6 +6,7 @@ import '../reusable_widgets/icon_content.dart';
 import '../reusable_widgets/reusable_card.dart';
 import '../constants.dart';
 import 'result_screen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../reusable_widgets/reusable_button.dart';
 
 enum Gender { male, female, empty }
@@ -22,6 +23,13 @@ class _InputPageState extends State<InputPage> {
   int weight = 60;
   int age = 18;
   Gender selectedGender = Gender.empty;
+  bool genderSelection() {
+    if (selectedGender == Gender.empty) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -202,16 +210,20 @@ class _InputPageState extends State<InputPage> {
             onPressed: () {
               CalculatorBrain calc =
                   CalculatorBrain(weight: weight, height: height);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultPage(
-                    bmi: calc.calculateBMI(),
-                    interpretation: calc.getInterpretation(),
-                    result: calc.getResult(),
+              if (genderSelection()) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                      bmi: calc.calculateBMI(),
+                      interpretation: calc.getInterpretation(),
+                      result: calc.getResult(),
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                showToast();
+              }
             },
           )
         ],
@@ -219,3 +231,6 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
+void showToast() =>
+    Fluttertoast.showToast(msg: 'Select Gender!', fontSize: 18.0);
