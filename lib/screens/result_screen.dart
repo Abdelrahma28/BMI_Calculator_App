@@ -2,6 +2,7 @@ import 'package:bmi_calculater/reusable_widgets/reusable_button.dart';
 import 'package:bmi_calculater/reusable_widgets/reusable_card.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResultPage extends StatelessWidget {
   ResultPage(
@@ -25,8 +26,9 @@ class ResultPage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.bottomLeft,
-              margin: const EdgeInsets.all(15.0),
-              child: const Text(
+              margin:
+                  EdgeInsets.symmetric(horizontal: 15.0.w, vertical: 15.0.h),
+              child: Text(
                 'Your Result',
                 style: kValueTextStyle,
               ),

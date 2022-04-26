@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalculateButton extends StatelessWidget {
   CalculateButton({required this.onPressed, required this.label});
@@ -20,8 +21,8 @@ class CalculateButton extends StatelessWidget {
           ],
         ),
         color: kBottomContainerColor,
-        margin: const EdgeInsets.only(top: 10.0),
-        padding: const EdgeInsets.only(bottom: 20.0),
+        margin: EdgeInsets.only(top: 10.0.h),
+        padding: EdgeInsets.only(bottom: 20.0.h),
         width: double.infinity,
         height: kBottomContainerHeight,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GenderWidget extends StatelessWidget {
   final String label;
@@ -15,7 +16,7 @@ class GenderWidget extends StatelessWidget {
           icon,
           size: kBottomContainerHeight,
         ),
-        const SizedBox(height: 15.0),
+        SizedBox(height: 15.0.h),
         Text(
           label,
           style: kLabelTextStyle,

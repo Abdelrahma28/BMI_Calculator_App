@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReusableCard extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -13,7 +14,7 @@ class ReusableCard extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         child: cardChild,
-        margin: const EdgeInsets.all(15.0),
+        margin: EdgeInsets.symmetric(vertical: 15.0.h, horizontal: 15.0.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: colour,

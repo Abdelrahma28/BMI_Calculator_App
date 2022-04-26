@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-const kCalculateStyle = TextStyle(
+final kCalculateStyle = TextStyle(
   fontWeight: FontWeight.w600,
-  fontSize: 22.0,
+  fontSize: 22.0.sp,
 );
 const kGenderTextColor = Color(0xFF8D8E98);
-const kBottomContainerHeight = 80.0;
+final kBottomContainerHeight = 80.0.h;
 const kBottomContainerColor = Color(0xFFEB1555);
 const kActiveColor = Color(0xFF1D1E33);
 const kInActiveColor = Color(0xff111328);
-const kLabelTextStyle = TextStyle(fontSize: 18.0, color: kGenderTextColor);
-const kValueTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold);
-const kBMITextStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 100.0);
-const kResultTextStyle = TextStyle(
-    color: Color(0xFF24D876), fontSize: 22.0, fontWeight: FontWeight.bold);
-const kBodyTextStyle = TextStyle(fontSize: 22.0);
+final kLabelTextStyle = TextStyle(fontSize: 18.0.sp, color: kGenderTextColor);
+final kValueTextStyle =
+    TextStyle(fontSize: 50.0.sp, fontWeight: FontWeight.bold);
+final kBMITextStyle =
+    TextStyle(fontWeight: FontWeight.bold, fontSize: 100.0.sp);
+final kResultTextStyle = TextStyle(
+    color: Color(0xFF24D876), fontSize: 22.0.sp, fontWeight: FontWeight.bold);
+final kBodyTextStyle = TextStyle(fontSize: 22.0.sp);
